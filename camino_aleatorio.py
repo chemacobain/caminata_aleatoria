@@ -23,7 +23,17 @@ def simular_caminata(pasos, numero_de_intentos, tipo_de_borracho):
         campo.anadir_borracho(borracho, origen)
         simulacion_caminata = caminata(campo, borracho, pasos)
         distancias.append(round(simulacion_caminata,1))
-    graficar(numero_de_intentos,distancias)
+    x_ilum = []
+    y_ilum = []
+    # Grafica la caminata aleatoria
+    for _ in range(pasos):
+        campo.mover_borracho(borracho)
+        a = campo.coordenadas_borrachos[borracho].x
+        b = campo.coordenadas_borrachos[borracho].y
+        x_ilum.append(a)
+        y_ilum.append(b)
+    graficar(x_ilum, y_ilum)
+
     return distancias
 
 def graficar(x,y):
@@ -45,7 +55,7 @@ def main(distancias_de_caminata,  numero_de_intentos, tipo_de_borracho):
         print(f'Media = {dist_media}')
         print(f'Max = {dist_max}')
         print(f'Max = {dist_min}')
-    graficar(distancias_de_caminata,distancias_media_por_caminata)
+
     
 
 if __name__ == '__main__':

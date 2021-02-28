@@ -12,7 +12,7 @@ class  borrachoTradicional(Borracho):
 
     def camina(self):
         sig_paso = [(0,1), (0,-1), (1,0),(-1,0)]
-        d = random.choices(range(len(sig_paso)),weights=(40,20,20,10),k=1)
+        d = random.choices(range(len(sig_paso)),weights=(25,25,25,25),k=1)
         dint = int(d[0])
         return sig_paso[dint]
         
